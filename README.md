@@ -5,9 +5,9 @@
 - sample-web  
 
 ## dependency-package
--sample-base  
--sample-common  
--sample-biz  
+- sample-base  
+- sample-common  
+- sample-biz  
 
 ## details
 ### 1.sample-api
