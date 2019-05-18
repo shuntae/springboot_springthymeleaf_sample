@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="_header :: header(~{::title})">
+<title>検索</title>
+</head>
+<body class="bg-light">
+
+	<th:block th:replace="_nav :: nav" />
+
+	<main class="container">
+		<h2>検索ワードを入力</h2>
+		<div class="col-md-12">
+			<div class="table-responsive-md">
+				<form class="form-inline" action="/search" th:action="@{/search}" th:object="${searchForm}" method="get">
+					<div class="form-group">
+						<input type="text" class="form-control" id="inputText" name="keyword" th:field="*{keyword}" />
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-default">検索</button>
+					</div>
+				</form>
+			</div>
+		</div><br><br>
+	
+		<h2>検索結果</h2>
+		<p th:text="${message}"></p>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th width="25%">code</th>
+					<th width="60%">name</th>
+					<th width="5%">price</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="item : ${items}" th:object="${item}">
+					<td th:text="*{itemCode}"/>
+					<td><a th:href="*{itemUrl}" th:text="*{itemName}" target="newtab"></a></td>
+					<td th:text="*{itemPrice}"/>
+				</tr>
+			</tbody>
+		</table>
+	</main>
+	<!-- /.container -->
+
+	<th:block th:replace="_include :: basic" />
+</body>
+</html>

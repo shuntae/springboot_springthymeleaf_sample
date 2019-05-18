@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: demo bootstrapt4 with spring boot 2.0
+  output:
+    ansi:
+      enabled: detect
+  jackson:
+    serialization:
+      indent-output: true
+      write-dates-as-timestamps: false
+      write-durations-as-timestamps: true
+  thymeleaf:
+    enabled: true
+    encoding: UTF-8
+    enable-spring-el-compiler: true
+    mode: html
+  devtools:
+    restart:
+      enabled: true
+      log-condition-evaluation-delta: true
+    livereload:
+      enabled: false
+
+server:
+  servlet:
+    context-path: /app
+  port: 9000
+
+logging.file: demo.log
+logging:
+  file:
+    max-size: 50MB
+    max-history: 10
+  level:
+    root: info
+    org.springframework: info
+    org.hibernate: info
+    org.hibernate.SQL: debug
+    org.thymeleaf: debug
+    org.thymeleaf.TemplateEngine.CONFIG: trace
+    org.thymeleaf.TemplateEngine.TIMER: trace
+    org.thymeleaf.TemplateEngine.cache.TEMPLATE_CACHE: trace
+    com.example.demo: debug
