@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
+import jp.co.introduction.common.model.req.AddItemReqModel;
 import jp.co.introduction.dao.ItemDao;
 import jp.co.introduction.entity.ItemDetailEntity;
 import jp.co.introduction.entity.ItemEntity;
@@ -33,6 +34,10 @@ public class ItemLogic {
 
 	public ItemDetailEntity getItemDetail(String itemCode) {
 		return itemDao.getItemDetail(itemCode);
+	}
+
+	public boolean addItem(AddItemReqModel reqModel) {
+		return itemDao.addItem(reqModel);
 	}
 
 	public boolean deleteFruit(int id) {

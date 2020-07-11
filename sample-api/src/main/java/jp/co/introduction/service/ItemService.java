@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jp.co.introduction.base.model.BaseResModel;
+import jp.co.introduction.common.model.req.AddItemReqModel;
 import jp.co.introduction.common.model.res.ItemDetailResModel;
 import jp.co.introduction.common.model.res.ItemsResModel;
 import jp.co.introduction.entity.ItemDetailEntity;
@@ -54,6 +55,20 @@ public class ItemService {
 
 		ItemDetailResModel resModel = new ItemDetailResModel();
 		resModel.setItemDetail(itemDetail);
+
+		resModel.setSuccess(true);
+		resModel.setMessage(message);
+
+		return resModel;
+	}
+
+	public BaseResModel addItem(AddItemReqModel reqModel) {
+
+		boolean deleteResult = ItemLogic.addItem(reqModel);
+		String message = "itemCode:" + reqModel.getItemCode() + "の登録に";
+		message += deleteResult ? "成功しました。" : "失敗しました。";
+
+		BaseResModel resModel = new BaseResModel();
 
 		resModel.setSuccess(true);
 		resModel.setMessage(message);

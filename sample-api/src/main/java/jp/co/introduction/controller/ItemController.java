@@ -2,11 +2,13 @@ package jp.co.introduction.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import jp.co.introduction.base.model.BaseResModel;
+import jp.co.introduction.common.model.req.AddItemReqModel;
 import jp.co.introduction.common.model.res.ItemDetailResModel;
 import jp.co.introduction.common.model.res.ItemsResModel;
 import jp.co.introduction.service.ItemService;
@@ -32,8 +34,13 @@ public class ItemController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, path = "/v1/items/{item_code}") // HttpMethodとエンドポイントの指定を行う
-	public ItemDetailResModel getItemDetail(@PathVariable() String itemCode) {
+	public ItemDetailResModel getItemDetail(@PathVariable("item_code") String itemCode) {
 		return itemService.getDetail(itemCode);
+	}
+
+	@RequestMapping(method = RequestMethod.POST, path = "/v1/items") // HttpMethodとエンドポイントの指定を行う
+	public BaseResModel addItem(@RequestBody AddItemReqModel reqModel) {
+		return itemService.addItem(reqModel);
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE, path = "/v1/items/{id}")
