@@ -26,7 +26,7 @@ public class SearchContoller {
     @Autowired // DIコンテナに登録したBean(クラス)を利用するときに使用するアノテーション
     public SearchService searchService;
 
-    @RequestMapping(method = RequestMethod.GET, path = "/v1/items") // HttpMethodとエンドポイントの指定を行う
+    @RequestMapping(method = RequestMethod.GET, path = "/v1/search") // HttpMethodとエンドポイントの指定を行う
     public SearchResModel getItems(@Valid SearchReqModel reqModel, BindingResult result) {
 
         // 引数チェック結果判定(アノテーションチェック結果)
