@@ -20,11 +20,4 @@
   In product search, call "sample-api".  
   ex/ http://localhost:9000/app/search
   
-### 3.sample-base
-  Handle "base classes" (filters, handlers, response models).
 
-### 4.sample-common
-  Handle requests, responses, and models.
-
-### 5.sample-biz
-  Handle common processing.
