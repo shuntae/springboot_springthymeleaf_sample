@@ -16,8 +16,10 @@ import jp.co.introduction.entity.ItemDetailEntity;
 import jp.co.introduction.entity.ItemDetailRowMapper;
 import jp.co.introduction.entity.ItemEntity;
 import jp.co.introduction.entity.ItemRowMapper;
+import lombok.extern.slf4j.Slf4j;
 
 @Component
+@Slf4j
 public class ItemDao {
 
 	@PersistenceContext
@@ -64,12 +66,13 @@ public class ItemDao {
 	}
 
 	public boolean addItem(AddItemReqModel reqModel) {
+		log.info("### パラメータ", reqModel.toString());
 		StringBuilder sql = new StringBuilder();
 		List<Object> paramList = new ArrayList();
 		sql.append("INSERT INTO ITEM ");
 		sql.append("( ");
 		sql.append("  ITEM_CODE ");
-		sql.append("  , ITEM_NAM ");
+		sql.append("  , ITEM_NAME ");
 		sql.append("  , PRICE ");
 		sql.append("  , TAX_RATE ");
 		sql.append("  , TAX_TYPE ");
@@ -106,7 +109,13 @@ public class ItemDao {
 		sql.append("  , ? ");
 		paramList.add("0"); // 削除フラグの定数は後で作る
 		sql.append(") ");
-		int resultCount = jdbcTemplate.update(sql.toString(), paramList);
+		int resultCount = 0;
+		try {
+			resultCount = jdbcTemplate.update(sql.toString(), paramList);
+		} catch (Exception e) {
+			log.error("### 例外発生", e);
+			return false;
+		}
 		return resultCount == 1;
 	}
 

@@ -12,6 +12,7 @@ import jp.co.introduction.common.model.req.AddItemReqModel;
 import jp.co.introduction.common.model.res.ItemDetailResModel;
 import jp.co.introduction.common.model.res.ItemsResModel;
 import jp.co.introduction.service.ItemService;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * コントローラクラス
@@ -23,6 +24,7 @@ import jp.co.introduction.service.ItemService;
  * １メソッド＝１エンドポイントというイメージ
  */
 @RestController // コントローラクラスに付与 付与することでDIコンテナに登録される。
+@Slf4j
 public class ItemController {
 
 	@Autowired // DIコンテナに登録したBean(クラス)を利用するときに使用するアノテーション
@@ -40,6 +42,7 @@ public class ItemController {
 
 	@RequestMapping(method = RequestMethod.POST, path = "/v1/items") // HttpMethodとエンドポイントの指定を行う
 	public BaseResModel addItem(@RequestBody AddItemReqModel reqModel) {
+		log.info("############# パラメータ", reqModel.toString());
 		return itemService.addItem(reqModel);
 	}
 
