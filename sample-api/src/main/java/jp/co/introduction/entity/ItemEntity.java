@@ -19,10 +19,10 @@ public class ItemEntity {
 	 * @throws SQLException SQL例外
 	 */
 	public ItemEntity(ResultSet rs) throws SQLException {
-		this.setItemCode(rs.getString("itemCode"));
-		this.setItemName(rs.getString("itemName"));
-		this.setPrice(rs.getInt("price"));
-		this.setMaker(rs.getString("maker"));
+		this.setItemCode(rs.getString("ITEM_CODE"));
+		this.setItemName(rs.getString("ITEM_NAME"));
+		this.setPrice(rs.getInt("PRICE"));
+		this.setMaker(rs.getString("MAKER"));
 	}
 
 	private String itemCode;

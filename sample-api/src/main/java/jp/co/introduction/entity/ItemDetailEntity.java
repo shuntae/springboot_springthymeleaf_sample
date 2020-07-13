@@ -19,13 +19,13 @@ public class ItemDetailEntity {
 	 * @throws SQLException SQL例外
 	 */
 	public ItemDetailEntity(ResultSet rs) throws SQLException {
-		this.setItemCode(rs.getString("itemCode"));
-		this.setItemName(rs.getString("itemName"));
-		this.setPrice(rs.getInt("price"));
-		this.setTaxRate(rs.getInt("taxRate"));
-		this.setTaxType(rs.getInt("taxType"));
-		this.setMaker(rs.getString("maker"));
-		this.setDescription(rs.getString("description"));
+		this.setItemCode(rs.getString("ITEM_CODE"));
+		this.setItemName(rs.getString("ITEM_NAME"));
+		this.setPrice(rs.getInt("PRICE"));
+		this.setTaxRate(rs.getInt("TAX_RATE"));
+		this.setTaxType(rs.getInt("TAX_TYPE"));
+		this.setMaker(rs.getString("MAKER"));
+		this.setDescription(rs.getString("DESCRIPTION"));
 	}
 
 	private String itemCode;

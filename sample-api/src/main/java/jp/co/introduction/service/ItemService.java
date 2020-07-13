@@ -62,14 +62,21 @@ public class ItemService {
 		return resModel;
 	}
 
+	/**
+	 * <p>
+	 * 商品登録
+	 * <p/>
+	 * 
+	 * @param reqModel リクエスト情報
+	 * @return 登録結果
+	 */
 	public BaseResModel addItem(AddItemReqModel reqModel) {
 
-		boolean deleteResult = ItemLogic.addItem(reqModel);
+		boolean insertResult = ItemLogic.addItem(reqModel);
 		String message = "itemCode:" + reqModel.getItemCode() + "の登録に";
-		message += deleteResult ? "成功しました。" : "失敗しました。";
+		message += insertResult ? "成功しました。" : "失敗しました。";
 
 		BaseResModel resModel = new BaseResModel();
-
 		resModel.setSuccess(true);
 		resModel.setMessage(message);
 

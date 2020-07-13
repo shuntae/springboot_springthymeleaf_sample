@@ -1,7 +1,12 @@
 package jp.co.introduction.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -40,9 +45,31 @@ public class ItemController {
 		return itemService.getDetail(itemCode);
 	}
 
-	@RequestMapping(method = RequestMethod.POST, path = "/v1/items") // HttpMethodとエンドポイントの指定を行う
-	public BaseResModel addItem(@RequestBody AddItemReqModel reqModel) {
-		log.info("############# パラメータ", reqModel.toString());
+	/**
+	 * <p>
+	 * 商品登録
+	 * <p/>
+	 * 画面より入力された情報で商品テーブル（ITEM）への商品情報登録を行う。
+	 * 
+	 * @param reqModel 画面の入力情報
+	 * @param result   入力情報の検証結果
+	 * @return 登録結果
+	 */
+	@PostMapping(path = "/v1/items", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE) // HttpMethodとエンドポイントの指定を行う
+	public BaseResModel addItem(@RequestBody @Valid AddItemReqModel reqModel, BindingResult result) {
+		// リクエスト情報に不正な値が存在していることをチェック
+		if (result.hasErrors()) {
+			// 不正と検知された入力項目とエラー情報をログに出力
+			result.getFieldErrors().stream()
+					.forEach(e -> log.error("# 入力不正フィールド:{}, 理由:{}", e.getField(), e.getDefaultMessage()));
+			// エラーとして返却
+			BaseResModel resModel = new BaseResModel();
+			resModel.setError(true);
+			resModel.setMessage("入力値に不正が見られます。");
+			return resModel;
+		}
+
+		// 商品登録処理呼び出し
 		return itemService.addItem(reqModel);
 	}
 
