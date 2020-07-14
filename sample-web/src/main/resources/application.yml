@@ -23,7 +23,7 @@ spring:
 
 server:
   servlet:
-    context-path: /app
+    context-path: /imozon-web
   port: 9000
 
 logging.file: demo.log

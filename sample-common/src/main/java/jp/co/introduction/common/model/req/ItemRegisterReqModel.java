@@ -1,7 +1,9 @@
 package jp.co.introduction.common.model.req;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import jp.co.introduction.base.model.BaseReqModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,11 +11,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AddItemReqModel {
+public class ItemRegisterReqModel extends BaseReqModel {
 
-	@NotNull
+	@NotBlank
 	private String itemCode;
-	@NotNull
+	@NotBlank
 	private String itemName;
 	@NotNull
 	private Integer price;
@@ -21,9 +23,9 @@ public class AddItemReqModel {
 	private Integer taxRate;
 	@NotNull
 	private Integer taxType;
-	@NotNull
+	@NotBlank
 	private String maker;
-	@NotNull
+	@NotBlank
 	private String description;
 
 }

@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +17,7 @@ import jp.co.introduction.common.entity.ItemDetailEntity;
 import jp.co.introduction.common.entity.ItemDetailRowMapper;
 import jp.co.introduction.common.entity.ItemEntity;
 import jp.co.introduction.common.entity.ItemRowMapper;
-import jp.co.introduction.common.model.req.AddItemReqModel;
+import jp.co.introduction.common.model.req.ItemRegisterReqModel;
 import lombok.extern.slf4j.Slf4j;
 
 @Component
@@ -77,8 +78,8 @@ public class ItemDao {
 
 		try {
 			return jdbcTemplate.queryForObject(sql.toString(), new ItemDetailRowMapper(), paramList.toArray());
-		} catch (Exception e) {
-			log.error("### 例外発生", e);
+		} catch (EmptyResultDataAccessException e) {
+			log.info("### 商品コードに紐づくデータが見つかりませんでした。(商品コード={})", itemCode);
 			return null;
 		}
 	}
@@ -92,7 +93,7 @@ public class ItemDao {
 	 * @param reqModel リクエスト情報
 	 * @return 商品登録結果
 	 */
-	public boolean addItem(AddItemReqModel reqModel) {
+	public boolean addItem(ItemRegisterReqModel reqModel) {
 		// 実行するSQL
 		StringBuilder sql = new StringBuilder();
 		// INSERTするデータのパラメーターリスト

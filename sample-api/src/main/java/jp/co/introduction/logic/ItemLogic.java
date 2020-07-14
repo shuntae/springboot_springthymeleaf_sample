@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import jp.co.introduction.common.entity.ItemDetailEntity;
 import jp.co.introduction.common.entity.ItemEntity;
-import jp.co.introduction.common.model.req.AddItemReqModel;
+import jp.co.introduction.common.model.req.ItemRegisterReqModel;
 import jp.co.introduction.dao.ItemDao;
 import lombok.extern.slf4j.Slf4j;
 
@@ -57,7 +57,7 @@ public class ItemLogic {
 	 * @param reqModel リクエスト情報
 	 * @return 登録結果
 	 */
-	public boolean addItem(AddItemReqModel reqModel) {
+	public boolean addItem(ItemRegisterReqModel reqModel) {
 		// 既に登録済みのデータでないことをチェック
 		if (itemDao.getItemDetail(reqModel.getItemCode()) != null) {
 			log.info("# 既に登録済みのデータのため、登録処理をSKIPします。");

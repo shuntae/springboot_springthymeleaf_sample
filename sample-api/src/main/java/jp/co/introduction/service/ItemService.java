@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import jp.co.introduction.base.model.BaseResModel;
 import jp.co.introduction.common.entity.ItemDetailEntity;
 import jp.co.introduction.common.entity.ItemEntity;
-import jp.co.introduction.common.model.req.AddItemReqModel;
+import jp.co.introduction.common.model.req.ItemRegisterReqModel;
 import jp.co.introduction.common.model.req.GetItemReqModel;
 import jp.co.introduction.common.model.res.ItemDetailResModel;
 import jp.co.introduction.common.model.res.ItemsResModel;
@@ -80,7 +80,7 @@ public class ItemService {
 	 * @param reqModel リクエスト情報
 	 * @return 登録結果
 	 */
-	public BaseResModel addItem(AddItemReqModel reqModel) {
+	public BaseResModel addItem(ItemRegisterReqModel reqModel) {
 
 		boolean insertResult = ItemLogic.addItem(reqModel);
 		String message = "itemCode:" + reqModel.getItemCode() + "の登録に";

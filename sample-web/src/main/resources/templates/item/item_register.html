@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="_header :: header(~{::title})">
+	<title>商品登録</title>
+</head>
+
+<body class="bg-light">
+
+	<th:block th:replace="_nav :: nav" />
+
+	<main class="container">
+		<h2>商品登録フォーム</h2>
+		<div class="col-md-12">
+			<div class="table-responsive-md">
+				<form class="form-inline" th:action="@{/item/register}" th:object="${itemRegistForm}" method="post">
+					<div class="form-group">
+						<table>
+							<tr>
+								<th>
+									<a>商品名</a>
+								</th>
+								<th>
+									<input type="text" class="form-control" id="inputText" name="itemName" th:field="*{itemName}" />
+									<span th:if="${#fields.hasErrors('itemName')}" th:errors="*{itemName}" style="color: red"></span>
+								</th>
+							</tr>
+							<tr>
+								<th>
+									<a>商品コード</a>
+								</th>
+								<th>
+									<input type="text" class="form-control" id="inputText" name="itemCode" th:field="*{itemCode}" />
+									<span th:if="${#fields.hasErrors('itemCode')}" th:errors="*{itemCode}" style="color: red"></span>
+								</th>
+							</tr>
+							<tr>
+								<th>
+									<a>価格</a>
+								</th>
+								<th>
+									<input type="text" class="form-control" id="inputText" name="price" th:field="*{price}" />
+									<span th:if="${#fields.hasErrors('price')}" th:errors="*{price}" style="color: red"></span>
+								</th>
+							</tr>
+							<tr>
+								<th>
+									<a>税率</a>
+								</th>
+								<th>
+									<input type="text" class="form-control" id="inputText" name="taxRate" th:field="*{taxRate}" />
+									<span th:if="${#fields.hasErrors('taxRate')}" th:errors="*{taxRate}" style="color: red"></span>
+								</th>
+							</tr>
+							<tr>
+								<th>
+									<a>税区分</a>
+								</th>
+								<th>
+									<input type="text" class="form-control" id="inputText" name="taxType" th:field="*{taxType}" />
+									<span th:if="${#fields.hasErrors('taxType')}" th:errors="*{taxType}" style="color: red"></span>
+								</th>
+							</tr>
+							<tr>
+								<th>
+									<a>メーカー</a>
+								</th>
+								<th>
+									<input type="text" class="form-control" id="inputText" name="maker" th:field="*{maker}" />
+									<span th:if="${#fields.hasErrors('maker')}" th:errors="*{maker}" style="color: red"></span>
+								</th>
+							</tr>
+							<tr>
+								<th>
+									<a>商品説明</a>
+								</th>
+								<th>
+									<input type="text" class="form-control" id="inputText" name="description" th:field="*{description}" />
+									<span th:if="${#fields.hasErrors('description')}" th:errors="*{description}" style="color: red"></span>
+								</th>
+							</tr>
+						</table>
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-default">登録</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</main>
+	<!-- /.container -->
+
+	<th:block th:replace="_include :: basic" />
+</body>
+
+</html>

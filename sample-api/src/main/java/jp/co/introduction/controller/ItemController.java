@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import jp.co.introduction.base.model.BaseResModel;
 import jp.co.introduction.biz.util.APIUtil;
-import jp.co.introduction.common.model.req.AddItemReqModel;
+import jp.co.introduction.common.model.req.ItemRegisterReqModel;
 import jp.co.introduction.common.model.req.GetItemReqModel;
 import jp.co.introduction.common.model.res.ItemDetailResModel;
 import jp.co.introduction.common.model.res.ItemsResModel;
@@ -81,7 +81,7 @@ public class ItemController {
 	 * @return 登録結果
 	 */
 	@PostMapping(path = "/v1/items", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE) // HttpMethodとエンドポイントの指定を行う
-	public BaseResModel addItem(@RequestBody @Valid AddItemReqModel reqModel, BindingResult result) {
+	public BaseResModel addItem(@RequestBody @Valid ItemRegisterReqModel reqModel, BindingResult result) {
 		// リクエスト情報に不正な値が存在していることをチェック
 		if (result.hasErrors()) {
 			// 不正な値が存在しており、エラーの場合、エラー情報の出力と、エラーレスポンスの返却を行う
