@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import jp.co.introduction.base.model.BaseResModel;
+import jp.co.introduction.biz.util.APIUtil;
 import jp.co.introduction.common.model.req.AddItemReqModel;
+import jp.co.introduction.common.model.req.GetItemReqModel;
 import jp.co.introduction.common.model.res.ItemDetailResModel;
 import jp.co.introduction.common.model.res.ItemsResModel;
 import jp.co.introduction.service.ItemService;
@@ -35,11 +37,34 @@ public class ItemController {
 	@Autowired // DIコンテナに登録したBean(クラス)を利用するときに使用するアノテーション
 	public ItemService itemService;
 
+	/**
+	 * <p>
+	 * 商品取得
+	 * <p/>
+	 * 検索条件を基に、商品テーブル（ITEM）へ商品情報リストの取得を行う。
+	 * 
+	 * @param itemCode 商品コード
+	 * @return 商品詳細情報
+	 */
 	@RequestMapping(method = RequestMethod.GET, path = "/v1/items") // HttpMethodとエンドポイントの指定を行う
-	public ItemsResModel getItems() {
-		return itemService.getItems();
+	public ItemsResModel getItems(@Valid GetItemReqModel reqModel, BindingResult result) {
+		// リクエスト情報に不正な値が存在していることをチェック
+		if (result.hasErrors()) {
+			// 不正な値が存在しており、エラーの場合、エラー情報の出力と、エラーレスポンスの返却を行う
+			return (ItemsResModel) APIUtil.printErrorInfo(result);
+		}
+		return itemService.getItems(reqModel);
 	}
 
+	/**
+	 * <p>
+	 * 商品詳細取得
+	 * <p/>
+	 * 商品コードを基に、商品テーブル（ITEM）へ商品詳細情報の取得を行う。
+	 * 
+	 * @param itemCode 商品コード
+	 * @return 商品詳細情報
+	 */
 	@RequestMapping(method = RequestMethod.GET, path = "/v1/items/{item_code}") // HttpMethodとエンドポイントの指定を行う
 	public ItemDetailResModel getItemDetail(@PathVariable("item_code") String itemCode) {
 		return itemService.getDetail(itemCode);
@@ -59,14 +84,8 @@ public class ItemController {
 	public BaseResModel addItem(@RequestBody @Valid AddItemReqModel reqModel, BindingResult result) {
 		// リクエスト情報に不正な値が存在していることをチェック
 		if (result.hasErrors()) {
-			// 不正と検知された入力項目とエラー情報をログに出力
-			result.getFieldErrors().stream()
-					.forEach(e -> log.error("# 入力不正フィールド:{}, 理由:{}", e.getField(), e.getDefaultMessage()));
-			// エラーとして返却
-			BaseResModel resModel = new BaseResModel();
-			resModel.setError(true);
-			resModel.setMessage("入力値に不正が見られます。");
-			return resModel;
+			// 不正な値が存在しており、エラーの場合、エラー情報の出力と、エラーレスポンスの返却を行う
+			return APIUtil.printErrorInfo(result);
 		}
 
 		// 商品登録処理呼び出し

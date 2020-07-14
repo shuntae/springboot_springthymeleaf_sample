@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import jp.co.introduction.base.model.BaseResModel;
 import jp.co.introduction.common.model.req.AddItemReqModel;
+import jp.co.introduction.common.model.req.GetItemReqModel;
 import jp.co.introduction.common.model.res.ItemDetailResModel;
 import jp.co.introduction.common.model.res.ItemsResModel;
 import jp.co.introduction.entity.ItemDetailEntity;
@@ -29,7 +30,7 @@ public class ItemService {
 	@Autowired // DIコンテナに登録したBean(クラス)を利用するときに使用するアノテーション
 	public ItemLogic ItemLogic;
 
-	public ItemsResModel getItems() {
+	public ItemsResModel getItems(GetItemReqModel reqModel) {
 
 		List<ItemEntity> itemList = ItemLogic.getItems();
 		String message = "データ取得に成功しました。データの取得件数は" + itemList.size() + "件です。";
@@ -43,6 +44,15 @@ public class ItemService {
 		return resModel;
 	}
 
+	/**
+	 * <p>
+	 * 商品詳細取得
+	 * <p/>
+	 * 商品コードを基に、商品テーブル（ITEM）へ商品詳細情報の取得を行う。
+	 * 
+	 * @param itemCode 商品コード
+	 * @return 商品詳細情報
+	 */
 	public ItemDetailResModel getDetail(String itemCode) {
 
 		ItemDetailEntity itemDetail = ItemLogic.getItemDetail(itemCode);

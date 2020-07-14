@@ -34,6 +34,15 @@ public class ItemLogic {
 		return itemDao.getItems();
 	}
 
+	/**
+	 * <p>
+	 * 商品詳細取得
+	 * <p/>
+	 * 商品コードを基に、商品テーブル（ITEM）へ商品詳細情報の取得を行う。
+	 * 
+	 * @param itemCode 商品コード
+	 * @return 商品詳細情報
+	 */
 	public ItemDetailEntity getItemDetail(String itemCode) {
 		return itemDao.getItemDetail(itemCode);
 	}
