@@ -1,0 +1,100 @@
+{
+	"id": "555906aa-485b-95b6-169e-a9a605a56702",
+	"name": "imozon-test-request",
+	"description": "",
+	"order": [
+		"bf8b7345-30e0-fc95-9a6e-35b0e0858991",
+		"c6f46279-51fb-b678-2a56-84e09b498a29"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1594459129266,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "bf8b7345-30e0-fc95-9a6e-35b0e0858991",
+			"headers": "Accept: application/json; text/plain, */*\nUser-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36\nContent-Type: application/json;charset=UTF-8\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json; text/plain, */*",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "User-Agent",
+					"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json;charset=UTF-8",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:1192/sample-api/v1/items",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1594654357481,
+			"name": "商品登録APIサンプル",
+			"description": "商品登録APIのサンプルリクエストデータ\n商品コードを変更してPOSTを実行することで、データの登録が可能\nhttp://localhost:1192/sample-api/v1/items",
+			"collectionId": "555906aa-485b-95b6-169e-a9a605a56702",
+			"responses": [],
+			"rawModeData": "{\n\"item_code\":\"111111\",\n\"item_name\":\"犬用ししゃも\",\n\"price\":500,\n\"tax_rate\":5,\n\"tax_type\":1,\n\"maker\":\"ドギーマン\",\n\"description\":\"美味しいよ\"\n}"
+		},
+		{
+			"id": "c6f46279-51fb-b678-2a56-84e09b498a29",
+			"headers": "Upgrade-Insecure-Requests: 1\nUser-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9\n",
+			"headerData": [
+				{
+					"key": "Upgrade-Insecure-Requests",
+					"value": "1",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "User-Agent",
+					"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:1192/sample-api/v1/items",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "555906aa-485b-95b6-169e-a9a605a56702",
+			"data": null,
+			"dataMode": "params",
+			"name": "商品取得APIサンプル",
+			"description": "商品テーブル（ITEM）に登録したデータの一覧を取得するリクエストサンプル\nhttp://localhost:1192/sample-api/v1/items",
+			"descriptionFormat": "html",
+			"time": 1594654711466,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}
