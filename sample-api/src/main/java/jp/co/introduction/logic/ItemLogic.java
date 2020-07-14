@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
+import jp.co.introduction.common.entity.ItemDetailEntity;
+import jp.co.introduction.common.entity.ItemEntity;
 import jp.co.introduction.common.model.req.AddItemReqModel;
 import jp.co.introduction.dao.ItemDao;
-import jp.co.introduction.entity.ItemDetailEntity;
-import jp.co.introduction.entity.ItemEntity;
 import lombok.extern.slf4j.Slf4j;
 
 /**

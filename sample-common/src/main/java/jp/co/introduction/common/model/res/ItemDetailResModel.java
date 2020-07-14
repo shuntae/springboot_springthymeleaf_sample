@@ -1,9 +1,7 @@
 package jp.co.introduction.common.model.res;
 
-import java.util.List;
-
 import jp.co.introduction.base.model.BaseResModel;
-import jp.co.introduction.entity.ItemEntity;
+import jp.co.introduction.common.entity.ItemDetailEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -13,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class ItemsResModel extends BaseResModel {
+public class ItemDetailResModel extends BaseResModel {
 
-	private List<ItemEntity> itemList;
+	private ItemDetailEntity itemDetail;
 }

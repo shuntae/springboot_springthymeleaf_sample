@@ -6,12 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jp.co.introduction.base.model.BaseResModel;
+import jp.co.introduction.common.entity.ItemDetailEntity;
+import jp.co.introduction.common.entity.ItemEntity;
 import jp.co.introduction.common.model.req.AddItemReqModel;
 import jp.co.introduction.common.model.req.GetItemReqModel;
 import jp.co.introduction.common.model.res.ItemDetailResModel;
 import jp.co.introduction.common.model.res.ItemsResModel;
-import jp.co.introduction.entity.ItemDetailEntity;
-import jp.co.introduction.entity.ItemEntity;
 import jp.co.introduction.logic.ItemLogic;
 
 /**

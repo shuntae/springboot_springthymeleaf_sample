@@ -12,11 +12,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import jp.co.introduction.base.constants.SqlConst;
+import jp.co.introduction.common.entity.ItemDetailEntity;
+import jp.co.introduction.common.entity.ItemDetailRowMapper;
+import jp.co.introduction.common.entity.ItemEntity;
+import jp.co.introduction.common.entity.ItemRowMapper;
 import jp.co.introduction.common.model.req.AddItemReqModel;
-import jp.co.introduction.entity.ItemDetailEntity;
-import jp.co.introduction.entity.ItemDetailRowMapper;
-import jp.co.introduction.entity.ItemEntity;
-import jp.co.introduction.entity.ItemRowMapper;
 import lombok.extern.slf4j.Slf4j;
 
 @Component

@@ -1,4 +1,4 @@
-package jp.co.introduction.entity;
+package jp.co.introduction.common.entity;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
