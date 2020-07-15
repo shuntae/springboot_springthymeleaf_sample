@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="_header :: header(~{::title})">
-<title>検索</title>
+	<title>検索</title>
 </head>
+
 <body class="bg-light">
 
 	<th:block th:replace="_nav :: nav" />
@@ -21,22 +23,22 @@
 				</form>
 			</div>
 		</div><br><br>
-	
+
 		<h2>検索結果</h2>
 		<p th:text="${message}"></p>
 		<table class="table table-bordered">
 			<thead>
 				<tr>
-					<th width="25%">code</th>
-					<th width="60%">name</th>
-					<th width="5%">price</th>
+					<th width="55%">商品名</th>
+					<th width="10%">価格</th>
+					<th width="15%">ショップ名</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="item : ${items}" th:object="${item}">
-					<td th:text="*{itemCode}"/>
 					<td><a th:href="*{itemUrl}" th:text="*{itemName}" target="newtab"></a></td>
-					<td th:text="*{itemPrice}"/>
+					<td th:text="*{itemPrice}" />
+					<td th:text="*{shopName}" />
 				</tr>
 			</tbody>
 		</table>
@@ -45,4 +47,5 @@
 
 	<th:block th:replace="_include :: basic" />
 </body>
+
 </html>
