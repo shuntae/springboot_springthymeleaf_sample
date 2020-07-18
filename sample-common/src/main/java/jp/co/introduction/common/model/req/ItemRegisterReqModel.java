@@ -1,5 +1,6 @@
 package jp.co.introduction.common.model.req;
 
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -18,6 +19,7 @@ public class ItemRegisterReqModel extends BaseReqModel {
 	@NotBlank
 	private String itemName;
 	@NotNull
+	@Max(value = 5000)
 	private Integer price;
 	@NotNull
 	private Integer taxRate;

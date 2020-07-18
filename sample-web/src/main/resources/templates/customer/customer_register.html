@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="_header :: header(~{::title})">
+<title>商品登録</title>
+</head>
+
+<body class="bg-light">
+
+	<th:block th:replace="_nav :: nav" />
+
+	<main class="container">
+	<h2>商品登録フォーム</h2>
+	<div class="col-md-12">
+		<div class="table-responsive-md">
+			<form class="form-inline" th:action="@{/customer/register}"
+				th:object="${customerRegistForm}" method="post">
+				<div class="form-group">
+					<table>
+						<tr>
+							<th><a>会員ID</a></th>
+							<th><input type="text" class="form-control" id="inputText"
+								name="customerCode" th:field="*{customerCode}" /> <span
+								th:if="${#fields.hasErrors('customerCode')}" th:errors="*{customerCode}"
+								style="color: red"></span></th>
+						</tr>
+						<tr>
+							<th><a>性</a></th>
+							<th><input type="text" class="form-control" id="inputText"
+								name="firstName" th:field="*{firstName}" /> <span
+								th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"
+								style="color: red"></span></th>
+						</tr>
+						<tr>
+							<th><a>名</a></th>
+							<th><input type="text" class="form-control" id="inputText"
+								name="lastName" th:field="*{lastName}" /> <span
+								th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
+								style="color: red"></span></th>
+						</tr>
+						<tr>
+							<th><a>郵便番号</a></th>
+							<th><input type="text" class="form-control" id="inputText"
+								name="postalCode" th:field="*{postalCode}" /> <span
+								th:if="${#fields.hasErrors('postalCode')}" th:errors="*{postalCode}"
+								style="color: red"></span></th>
+						</tr>
+						<tr>
+							<th><a>都道府県コード</a></th>
+							<th><input type="text" class="form-control" id="inputText"
+								name="prefCode" th:field="*{prefCode}" /> <span
+								th:if="${#fields.hasErrors('prefCode')}" th:errors="*{prefCode}"
+								style="color: red"></span></th>
+						</tr>
+						<tr>
+							<th><a>住所1</a></th>
+							<th><input type="text" class="form-control" id="inputText"
+								name="address1" th:field="*{address1}" /> <span
+								th:if="${#fields.hasErrors('address1')}" th:errors="*{address1}"
+								style="color: red"></span></th>
+						</tr>
+						<tr>
+							<th><a>住所2</a></th>
+							<th><input type="text" class="form-control" id="inputText"
+								name="address2" th:field="*{address2}" /> <span
+								th:if="${#fields.hasErrors('address2')}"
+								th:errors="*{address2}" style="color: red"></span></th>
+						</tr>
+						<tr>
+							<th><a>住所3</a></th>
+							<th><input type="text" class="form-control" id="inputText"
+								name="address3" th:field="*{address3}" /> <span
+								th:if="${#fields.hasErrors('address3')}"
+								th:errors="*{address3}" style="color: red"></span></th>
+						</tr>
+						<tr>
+							<th><a>住所4</a></th>
+							<th><input type="text" class="form-control" id="inputText"
+								name="address4" th:field="*{address4}" /> <span
+								th:if="${#fields.hasErrors('address4')}"
+								th:errors="*{address4}" style="color: red"></span></th>
+						</tr>
+					</table>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-default">登録</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	</main>
+	<!-- /.container -->
+
+	<th:block th:replace="_include :: basic" />
+</body>
+
+</html>
