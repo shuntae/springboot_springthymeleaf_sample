@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import jp.co.introduction.base.model.BaseResModel;
 import jp.co.introduction.common.biz.util.RestTemplateLogic;
 import jp.co.introduction.common.model.req.CustomerRegisterReqModel;
-import jp.co.introduction.common.model.req.ItemRegisterReqModel;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
