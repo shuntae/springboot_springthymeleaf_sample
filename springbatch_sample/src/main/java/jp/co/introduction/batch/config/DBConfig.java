@@ -25,7 +25,7 @@ public class DBConfig {
     dataSource.setUrl(
         "jdbc:mysql://127.0.0.1:3306/mysql?characterEncoding=UTF-8&serverTimezone=JST&useSSL=false&allowPublicKeyRetrieval=true");
     dataSource.setUsername("root"); // ローカルで起動しているRDBのユーザ名を設定
-    dataSource.setPassword("Password"); // ローカルで起動しているRDBのパスワードを設定
+    dataSource.setPassword("eva02gouki"); // ローカルで起動しているRDBのパスワードを設定
     return dataSource;
   }
 

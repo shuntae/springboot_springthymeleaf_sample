@@ -36,7 +36,7 @@ public class CustomerRegisterController {
 		// 入力フォームの初期化
 		model.addAttribute("customerRegistForm", new CustomerRegisterReqModel());
 
-		// 登録画面に遷移
+		// 会員登録画面に遷移
 		return "customer/customer_register";
 	}
 

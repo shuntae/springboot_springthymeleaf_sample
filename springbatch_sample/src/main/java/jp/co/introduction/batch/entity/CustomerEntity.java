@@ -19,8 +19,8 @@ public class CustomerEntity {
 	 * @throws SQLException SQL例外
 	 */
 	public CustomerEntity(ResultSet rs) throws SQLException {
-		this.setCustomerCode(rs.getString("customerCode"));
-		this.setFirstName(rs.getString("firstName"));
+		this.setCustomerCode(rs.getString("CUSTOMER_CODE"));
+		this.setFirstName(rs.getString("FIRST_NAME"));
 	}
 
 	private String customerCode;
