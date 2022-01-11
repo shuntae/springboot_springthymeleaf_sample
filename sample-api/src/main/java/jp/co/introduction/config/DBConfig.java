@@ -22,7 +22,7 @@ public class DBConfig {
     dataSource.setUrl(
         "jdbc:mysql://127.0.0.1:3306/mysql?characterEncoding=UTF-8&serverTimezone=JST&useSSL=false&allowPublicKeyRetrieval=true");
     dataSource.setUsername("root");
-    dataSource.setPassword("eva02gouki"); // パスワードは自分の環境に合わせる
+    dataSource.setPassword("hoge"); // パスワードは自分の環境に合わせる
     return dataSource;
   }
 

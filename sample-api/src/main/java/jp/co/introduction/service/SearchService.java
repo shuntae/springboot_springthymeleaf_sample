@@ -56,7 +56,7 @@ public class SearchService {
 			resModel.setItemList(ichibaItemModel.getItemList());
 
 			// ITEMテーブルへ商品の登録
-			searchLogic.addItemData(itemList);
+//			searchLogic.addItemData(itemList);
 
 		} else {
 			// 初期値を設定して返却
