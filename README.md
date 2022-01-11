@@ -1,5 +1,9 @@
 # springboot_springthymeleaf_sample
 
+## install software
+- MySQL(8.0.27)
+  https://dev.mysql.com/downloads/mysql/
+
 ## application-package
 - sample-api  
 - sample-web  
